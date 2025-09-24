@@ -6,6 +6,11 @@ export class AppService {
   private allTraits = ['Adaptability', 'Empathy', 'Harmony', 'Discipline', 'Focus'];
 
   getScore(jobTraitRanking: string[], applicantTraitRanking: string[]) {
+
+    if (!jobTraitRanking?.length || !applicantTraitRanking?.length) {
+      return 0;
+    }
+
     let score = 0;
     const maxScore = this.allTraits.length * this.allTraits.length;
 
